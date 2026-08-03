@@ -34,12 +34,47 @@
 
 
 
-function calculate(num1, num2, operation) {
-    if (operation === "+") {
-        return num1 + num2;
-    } else if (operation === "-") {
-        return num1 - num2;
+// function calculate(num1, num2, operation) {
+//    if (operation === "+") {
+//        return num1 + num2;
+//    } else if (operation === "-") {
+//        return num1 - num2;
+//    }
+// }
+// console.log(calculate(2, 4, "+"));
+// console.log(calculate(2, 4, "-"));
+
+
+
+var students = [
+    { name: "ali", score: [20, 18, 14, 15] },
+    { name: "yeganeh", score: [17, 19, 13, 15] },
+    { name: "sara", score: [14, 12, 9, 20] },
+];
+
+function average(student) {
+    var sum = 0;
+    for (var i=0 ; i < student.score.length ; i++) {
+        sum += student.score[i];
     }
+    return sum / student.score.length;
 }
-console.log(calculate(2, 4, "+"));
-console.log(calculate(2, 4, "-"));
+
+for (var i=0 ; i<students.length ; i++) {
+    console.log(students[i].name + ": " + average(students[i]));
+}
+
+function getBestStudents(students) {
+    var best = students[0];
+    var bestAvg = average(best);
+
+    for (var i = 1 ; i<students.length ; i++) {
+        var avg = average(students[i]); 
+        if (avg > bestAvg) {
+            bestAvg = avg;
+            best = students[i];
+        }
+    }
+    return best;
+}
+console.log("best students: " + getBestStudents(students).name);
