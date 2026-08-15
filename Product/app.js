@@ -49,6 +49,7 @@ function showProducts() {
              }
     }
 }
+
 function deleteProduct(i) {
     products[i] = null;
     showProducts();
@@ -62,6 +63,7 @@ function addProduct() {
         price: document.getElementById("price").value,
         quantity: document.getElementById("quantity").value
     };
+    
     document.getElementById("name").value = "";
     document.getElementById("category").value = "";
     document.getElementById("price").value = "";
