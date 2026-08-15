@@ -70,5 +70,5 @@ function addProduct() {
     showProducts();
 }
 
-showProducts();
+showProducts(); 
 
