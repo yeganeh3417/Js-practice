@@ -47,6 +47,7 @@ function handleDecrease() {
     }
     checkStyle()
 }
+
 function handleIncrease() {
     if(number < 5) {
        number++;
