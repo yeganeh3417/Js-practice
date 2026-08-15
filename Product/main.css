@@ -1,0 +1,51 @@
+body {
+    margin: 50px;
+}
+
+.container {
+    width: 800px;
+    margin: auto;
+}
+
+.form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form input {
+    width: 150px;
+    padding: 10px;
+}
+
+button {
+    padding: 10px 10px;
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.search input {
+    width: 150px;
+    padding: 10px;
+}
+
+.search select {
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #bebbbb;
+}
+

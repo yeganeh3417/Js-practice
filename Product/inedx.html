@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="./main.css" rel="stylesheet"/>
+        <title>Product</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Product Manager</h1>
+
+            <div class="form">
+                <input type="text" id="name" placeholder="Name"/>
+                <input type="text" id="category" placeholder="Category"/>
+                <input type="text" id="price" placeholder="Price"/>
+                <input type="text" id="quantity" placeholder="Quantity"/>
+                <button onclick="addProduct()">Add</button>
+            </div>
+
+            <div class="search">
+                <input type="text" id="search" placeholder="Search by name" oninput="showProducts()"/>
+                <select id="categoryFilter" onchange="showProducts()">
+                    <option value="All">All</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Mobile">Mobile</option>
+                </select>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="productList"></tbody>
+            </table>
+        </div>
+
+        <script src="./app.js"></script>
+    </body>
+</html>
