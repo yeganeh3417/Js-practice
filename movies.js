@@ -451,70 +451,135 @@ const movies = [
     },
 ];
 
-const titleYear = movies.map((movie) => {
-    return movie.title + " - " + movie.year;
+// const titleYear = movies.map((movie) => {
+//     return movie.title + " - " + movie.year;
+// });
+// console.log(titleYear);
+
+
+// const sortedByPrice = [...movies].sort((a, b) => a.price - b.price);
+// const cheapest = sortedByPrice[0];
+// const mostExpensive = sortedByPrice[sortedByPrice.length - 1];
+// console.log(cheapest.title, mostExpensive.title);
+
+
+// const interstellar = movies.find((movie) => movie.title === "Interstellar");
+// console.log(interstellar.year);
+
+
+// const incredibles = movies.find((movie) => movie.title === "The Incredibles");
+// console.log(incredibles.duration, incredibles.rating);
+
+
+// const hasAboveNine = movies.some((movie) => movie.rating > 9);
+// console.log(hasAboveNine);
+
+
+// const hasAfter2025 = movies.some((movie) => movie.year > 2025);
+// console.log(hasAfter2025);
+
+
+// const hasComedy = movies.some((movie) => movie.genre === "Comedy");
+// console.log(hasComedy);
+
+
+// const allUnderTen = movies.every((movie) => movie.price < 10);
+// console.log(allUnderTen);
+
+
+// const genres = movies.map((movie) => movie.genre);
+// console.log(genres.includes("Horror"));
+
+
+// const byRating = [...movies].sort((a, b) => a.rating - b.rating);
+// console.log(byRating);
+
+
+// const after2015 = movies.filter((movie)=> movie.year > 2015);
+// console.log(after2015);
+
+
+// const byRatingThenPrice = [...movies].sort((a, b) => {
+//     if (a.rating === b.rating) {
+//         return a.price - b.price
+//     }
+//     return b.rating - a.rating;
+// });
+// console.log(byRatingThenPrice);
+
+
+// movies.push({
+//     id: 51,
+//     title: "Heretic",
+//     genre: "Horror",
+//     year: 2024,
+//     rating: 7.0,
+//     price: 5,
+//     duration: 111,
+// });
+// console.log(movies);
+
+
+
+
+const dramaAfter2015 = movies.filter((movie) => {
+    return movie.genre === "Drama" && movie.year > 2015 && movie.rating > 7.5
 });
-console.log(titleYear);
+console.log(dramaAfter2015);
 
 
-const sortedByPrice = [...movies].sort((a, b) => a.price - b.price);
-const cheapest = sortedByPrice[0];
-const mostExpensive = sortedByPrice[sortedByPrice.length - 1];
-console.log(cheapest.title, mostExpensive.title);
+const longMovies = movies.filter((movie) => movie.duration > 150);
+const longTitle = longMovies.map((movie) => movie.title).join(" & ");
+console.log(longTitle);
 
 
-const interstellar = movies.find((movie) => movie.title === "Interstellar");
-console.log(interstellar.year);
+let totalRating = 0;
+movies.forEach((movie) => { totalRating += movie.rating });
+const averageRating = totalRating / movies.length;
+console.log(averageRating);
 
 
-const incredibles = movies.find((movie) => movie.title === "The Incredibles");
-console.log(incredibles.duration, incredibles.rating);
-
-
-const hasAboveNine = movies.some((movie) => movie.rating > 9);
-console.log(hasAboveNine);
-
-
-const hasAfter2025 = movies.some((movie) => movie.year > 2025);
-console.log(hasAfter2025);
-
-
-const hasComedy = movies.some((movie) => movie.genre === "Comedy");
-console.log(hasComedy);
-
-
-const allUnderTen = movies.every((movie) => movie.price < 10);
-console.log(allUnderTen);
-
-
-const genres = movies.map((movie) => movie.genre);
-console.log(genres.includes("Horror"));
-
-
-const byRating = [...movies].sort((a, b) => a.rating - b.rating);
-console.log(byRating);
-
-
-const after2015 = movies.filter((movie)=> movie.year > 2015);
-console.log(after2015);
-
-
-const byRatingThenPrice = [...movies].sort((a, b) => {
-    if (a.rating === b.rating) {
-        return a.price - b.price
+let mostExpensive = movies[0];
+movies.forEach((movie) => {
+    if(movie.price > mostExpensive.price) {
+        mostExpensive = movie;
     }
-    return b.rating - a.rating;
 });
-console.log(byRatingThenPrice);
+console.log(mostExpensive.title);
 
 
-movies.push({
-    id: 51,
-    title: "Heretic",
-    genre: "Horror",
-    year: 2024,
-    rating: 7.0,
-    price: 5,
-    duration: 111,
+const genreCount = {};
+movies.forEach((movie) => {
+    if(genreCount[movie.genre]) {
+        genreCount[movie.genre]++;
+    } else {
+        genreCount[movie.genre] = 1;
+    }
 });
+console.log(genreCount);
+
+
+const highRated = movies.filter((movie) => movie.rating >= 8.5);
+const highRatedSorted = [...highRated].sort((a, b) => a.price - b.price);
+const highRatedTitles = highRatedSorted.map((movie) => movie.title).join(" & ");
+console.log(highRatedTitles);
+
+
+const hasAction = movies.some((movie) => movie.genre === "Action");
+const hasDrama = movies.some((movie) => movie.genre === "Drama");
+const hasComedy = movies.some((movie) => movie.genre === "Comedy");
+const hasAllThree = hasAction && hasDrama && hasComedy;
+console.log(hasAllThree);
+
+
+const MatrixIndex = movies.findIndex((movie) => movie.title === "The Matrix");
+movies.splice(MatrixIndex, 1);
 console.log(movies);
+
+
+const suggested = movies.filter((movie) => {
+    return (movie.rating > 9 || movie.price < 6) && movie.duration < 150; 
+});  
+const suggestedSorted = [...suggested].sort((a, b) => b.rating - a.rating);
+const suggestedTitles = suggestedSorted.map((movie) => movie.title).join(" & ");
+console.log(suggestedTitles);
