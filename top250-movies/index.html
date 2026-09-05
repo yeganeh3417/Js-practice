@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="./style.css" rel="stylesheet"/>
+        <title>250 فیلم برتر IMDB</title>
+    </head>
+    <body>
+        <header>
+            <h1>250 فیلم برتر IMDB</h1>
+        </header>
+
+        <section class="filters">
+            <div class="filter-item">
+                <label for="genre">ژانر</label>
+                <select id="genre">
+                    <option value="all">همه</option>
+                    <option value="drama">درام</option>
+                    <option value="romance">عاشقانه</option>
+                    <option value="comedy">کمدی</option>
+                    <option value="action">اکشن</option>
+                    <option value="crime">جنایی</option>
+                    <option value="sci-fi">علمی-تخیلی</option>
+                    <option value="fantasy">فانتزی</option>
+                    <option value="adventure">ماجراجویی</option>
+                    <option value="mystery">معمایی</option>
+                </select>
+            </div>
+
+
+            <div class="filter-item">
+                <label for="country">کشور</label>
+                <select id="country">
+                    <option value="all">همه</option>
+                    <option value="england">انگلستان</option>
+                    <option value="america">آمریکا</option>
+                    <option value="spain">اسپانیا</option>
+                    <option value="italy">ایتالیا</option>
+                    <option value="france">فرانسه</option>
+                </select>
+            </div>
+
+
+            <div class="filter-item">
+                <label for="lang">زبان</label>
+                <select id="lang">
+                    <option value="all">همه</option>
+                    <option value="fa">فارسی</option>
+                    <option value="en">انگلیسی</option>
+                    <option value="de">آلمانی</option>
+                    <option value="fr">فرانسوی</option>
+                    <option value="es">اسپانیایی</option>
+                </select>
+            </div>
+
+
+            <div class="filter-item">
+                <label for="age">رده سنی</label>
+                <select id="age">
+                    <option value="all">همه</option>
+                    <option value="3-6">3 تا 6 سال</option>
+                    <option value="6-12">6 تا 12 سال</option>
+                    <option value="12-15">12 تا 15 سال</option>
+                    <option value="15-18">15 تا 18 سال</option>
+                    <option value="18-99">تا 18 سال و به بالا</option>
+                </select>
+            </div>
+
+
+            <div class="filter-item">
+                <label for="scoreFrom">امتیاز از</label>
+                <select id="scoreFrom">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label for="scoreTo">امتیاز تا</label>
+                <select id="scoreTo">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10" selected>10</option>
+                </select>
+            </div>
+
+
+            <div class="filter-item">
+                <label for="sort">ترتیب</label>
+                <select id="sort">
+                    <option value="newset">جدیدترین</option>
+                    <option value="mostViewed">پربازدیدترین</option>
+                    <option value="rate">بالاترین امتیاز</option>
+
+                </select>
+            </div>
+
+
+            <div class="filter-item">
+                <label for="yearFrom">از سال</label>
+                <input id="yearFrom" type="number" placeholder="مثلا 1990"/>
+            </div>
+            
+            <div class="filter-item">
+                <label for="yearTo">تا سال</label>
+                <input id="yearTo" type="number" placeholder="مثلا 2025"/>
+            </div>
+
+
+            <div class="filter-item">
+                <label for="director">کارگردان</label>
+                <input id="director" type="text" placeholder="کارگردان"/>
+            </div>
+
+
+            <button id="searchBtn">جستجو 🔍</button>
+        </section>
+
+        <div id="results" class="results"></div>
+
+        <script src="./app.js"></script>
+    </body>
+</html>
